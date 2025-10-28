@@ -90,7 +90,7 @@ struct BoltDIN931View: View {
                 boltLengthMax: diameterManager.boltLengthMax
             )
             
-            let matThk = Double(matThkTextFieldData.matThkTextFieldValue) ?? 0.0
+            let matThk = max(0.0, Double(matThkTextFieldData.matThkTextFieldValue) ?? 0.0)
             let thrEnt = Double(threadEntry.acceptableThreadEntry) ?? 0.0
         
             let drawingScale = Double(drawingScale.drawingScale)
@@ -443,11 +443,31 @@ func nutDIN439(nutDIN439_h: Double, nutDIN439_W: Double, drawScale: Double) -> s
 
 // Rysunek łączonych elementów
 func combinedMaterial(materialThick: Double, materialWidth: Double, drawScale: Double) -> some View {
-        Rectangle()
-            .frame(width: materialWidth * drawScale, height: materialThick * drawScale)
-            .opacity(0.6)
-            .border(.black, width: borderWidth)
-            .foregroundColor(.purple)
+    // Sanitize inputs
+    let safeScale = drawScale.isFinite && drawScale > 0 ? drawScale : 1.0
+    let safeThick = materialThick.isFinite && materialThick >= 0 ? materialThick : 0.0
+    let widthIsInfinite = !materialWidth.isFinite
+    let safeWidth = materialWidth.isFinite && materialWidth >= 0 ? materialWidth : 0.0
+
+    // If caller passed .infinity, use flexible width instead of a numeric frame width
+    if widthIsInfinite {
+        return AnyView(
+            Rectangle()
+                .frame(height: safeThick * safeScale)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .opacity(0.6)
+                .border(.black, width: borderWidth)
+                .foregroundColor(.purple)
+        )
+    } else {
+        return AnyView(
+            Rectangle()
+                .frame(width: safeWidth * safeScale, height: safeThick * safeScale)
+                .opacity(0.6)
+                .border(.black, width: borderWidth)
+                .foregroundColor(.purple)
+        )
+    }
 }
 
 struct BoltDIN933View: View {

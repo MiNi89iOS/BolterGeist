@@ -1,0 +1,83 @@
+# BolterGeist
+
+BolterGeist to aplikacja pomocnicza do doboru śrub i osprzętu (podkładek, nakrętek) oraz wizualizacji złożenia w widoku 2D. Umożliwia szybkie oszacowanie wymaganej długości śruby na podstawie wybranych komponentów, grubości łączonych elementów oraz ustawień projektowych. Aplikacja zawiera również uproszczony podgląd rysunkowy ułatwiający weryfikację konfiguracji.
+
+Wersja: v0.4
+
+## Funkcje
+
+- Wybór typu śruby:
+  - DIN 931 (łeb sześciokątny, trzpień częściowo gwintowany)
+  - DIN 933 (łeb sześciokątny, trzpień w pełni gwintowany)
+  - (eksperymentalnie) DIN 7991
+
+- Wybór średnicy śruby (M3…M30) i maksymalnej długości śruby
+- Wybór maksymalnej grubości materiału oraz liczby akcesoriów:
+  - Podkładki DIN 125 (standardowe)
+  - Podkładki DIN 9021 (poszerzone)
+  - Nakrętki DIN 934 i DIN 439
+- Ustawienia gradacji długości śrub (5/10/20 mm)
+- Ustawienie dopuszczalnej liczby zwojów gwintu „za nakrętką” (pFactor)
+- Skalowanie rysunku (Drawing Scale)
+- Automatyczne obliczenie proponowanej długości śruby na podstawie:
+  - grubości łączonych elementów,
+  - liczby i typów podkładek,
+  - liczby i typu nakrętek,
+  - wymaganego gwintu w strefie nakrętki.
+- Podsumowanie wyniku z informacją, czy dobór jest poprawny (OK / Nie dobrano).
+
+## Jak to działa (w skrócie)
+
+1. Wybierz typ śruby i jej średnicę.
+2. Ustal grubość łączonych elementów oraz konfigurację podkładek i nakrętek po obu stronach połączenia.
+3. Aplikacja wyznaczy minimalną długość śruby spełniającą kryteria (np. dopuszczalna liczba zwojów za nakrętką).
+4. Otrzymasz komunikat z wynikiem oraz podgląd rysunkowy z naniesionymi elementami.
+
+Uwaga: dla DIN 931 uwzględniana jest długość części gwintowanej trzpienia, a dobór weryfikuje m.in. czy suma nakrętek nie przekracza długości gwintu.
+
+## Zastrzeżenia i ważne uwagi (Disclaimer)
+
+- Wyniki obliczeń mają charakter poglądowy i nie stanowią dokumentacji technicznej, projektu ani instrukcji montażu.
+- Aplikacja nie uwzględnia wszystkich możliwych norm, tolerancji, odchyłek produkcyjnych, warunków pracy, wymagań wytrzymałościowych czy zasad BHP.
+- Użytkownik ponosi pełną odpowiedzialność za wykorzystanie wyników w praktyce. Przed zastosowaniem w rzeczywistych konstrukcjach należy:
+  - zweryfikować dobór w oparciu o obowiązujące normy i wytyczne,
+  - skonsultować rozwiązanie z uprawnionym inżynierem/konstruktorem,
+  - uwzględnić warunki pracy (obciążenia, drgania, środowisko, temperaturę itp.).
+- Autorzy nie ponoszą odpowiedzialności za jakiekolwiek szkody wynikłe z wykorzystania aplikacji lub jej wyników.
+- Wizualizacja ma charakter ilustracyjny i uproszczony – nie odzwierciedla wszystkich cech geometrycznych ani tolerancji.
+
+## Wymagania
+
+- Platforma: Apple (iOS/iPadOS/macOS – zgodnie z docelowym projektem)
+- Xcode z obsługą SwiftUI
+- Swift 5.7+ (zalecane) i SwiftUI
+
+## Instalacja i uruchomienie
+
+1. Otwórz projekt w Xcode.
+2. Upewnij się, że wszystkie obiekty środowiskowe (EnvironmentObject) są dostarczone do ContentView:
+   - BoltDiameter
+   - GradationState
+   - MaterialThkTextFieldData
+   - ThreadEntryData
+   - ComponentList
+   - DrawingScale
+3. Zbuduj i uruchom aplikację na symulatorze lub urządzeniu.
+
+## Dane i ustawienia
+
+Aplikacja zapamiętuje wybrane parametry (np. domyślną średnicę śruby, gradację długości, maksymalne wartości, skalę rysunku) z wykorzystaniem UserDefaults. W ustawieniach dostępna jest opcja „Przywróć domyślne”.
+
+## Znane ograniczenia
+
+- Część logiki bazuje na globalnych zmiennych pomocniczych (np. boltLength, i, j), co może wpływać na przewidywalność przy równoległych kalkulacjach – planowana refaktoryzacja.
+- Wizualizacja jest 2D i schematyczna, bez pełnego odwzorowania geometrii normowej.
+- Wsparcie dla DIN 7991 jest wstępne/eksperymentalne.
+
+## Licencja
+
+Wyniki obliczeń i wizualizacje mają charakter informacyjny. O ile nie uzgodniono inaczej, projekt przeznaczony do użytku prywatnego/edukacyjnego. Skontaktuj się z autorem w celu ustalenia warunków komercyjnego wykorzystania.
+
+## Kontakt
+
+Jeśli masz pytania, sugestie lub chcesz zgłosić błąd, otwórz zgłoszenie (issue) lub skontaktuj się z autorem projektu.
