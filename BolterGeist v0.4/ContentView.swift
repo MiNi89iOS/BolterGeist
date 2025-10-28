@@ -32,7 +32,6 @@ struct ContentView: View {
                                 .environmentObject(threadEntry)
                                 .environmentObject(componentList)
                                 .environmentObject(drawingScale)
-                                .animation(.bouncy)
                             }
                             
                             NavigationLink("Settings") {

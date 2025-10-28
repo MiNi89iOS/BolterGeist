@@ -50,6 +50,10 @@ struct ComponentListView: View {
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                             .padding(7)
                                         
+                                        BoltRow(color: .yellow, label: "DIN 7991", selectedBolt: $componentList.selectedBolt)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            .padding(7)
+                                        
                                     }
                                 }
                                 .frame(width: 110, height: 100)

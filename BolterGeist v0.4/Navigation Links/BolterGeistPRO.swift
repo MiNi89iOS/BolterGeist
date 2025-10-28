@@ -106,11 +106,13 @@ struct BolterGeistPro: View {
                                 .frame(width: 60, height: 239)
                                 .scaleEffect(0.8)
                             VStack (alignment: .leading) {
-                                ThreadEntryView()
-                                    .environmentObject(threadEntry)
-                                    .scaleEffect(0.8)
-                                    .frame(width: 185, height: 100)
-                                    .offset(x: -14.5, y: 0)
+                                if componentList.selectedBolt == "DIN 931" {
+                                    ThreadEntryView()
+                                        .environmentObject(threadEntry)
+                                        .scaleEffect(0.8)
+                                        .frame(width: 185, height: 100)
+                                        .offset(x: -14.5, y: 0)
+                                }
                                 MaterialThkTextFieldView()
                                     .environmentObject(matThkTextFieldData)
                                     .offset(x: 0)

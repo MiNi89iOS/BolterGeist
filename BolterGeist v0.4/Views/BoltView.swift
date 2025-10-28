@@ -42,6 +42,14 @@ struct BoltView: View {
                         .environmentObject(matThkTextFieldData)
                         .environmentObject(drawingScale)
                         .animation(.default)
+                } else if componentList.selectedBolt == "DIN 7991" {
+                    BoltDIN7991View()
+                        .environmentObject(diameterManager)
+                        .environmentObject(gradationState)
+                        .environmentObject(componentList)
+                        .environmentObject(matThkTextFieldData)
+                        .environmentObject(drawingScale)
+                        .animation(.default)
                 }
             }
         }
@@ -443,6 +451,224 @@ func combinedMaterial(materialThick: Double, materialWidth: Double, drawScale: D
 }
 
 struct BoltDIN933View: View {
+    @EnvironmentObject var diameterManager: BoltDiameter
+    @EnvironmentObject var gradationState: GradationState
+    @EnvironmentObject var componentList: ComponentList
+    @EnvironmentObject var matThkTextFieldData: MaterialThkTextFieldData
+    @EnvironmentObject var drawingScale: DrawingScale
+
+    var body: some View {
+            let bolt_Dia = diameterManager.boltDiameter
+        
+            let (
+                DIN931Head_h,
+                DIN931Head_W,
+                boltThread_L,
+                washerDIN125_h,
+                washerDIN125_D_Ext,
+                washerDIN9021_h,
+                washerDIN9021_D_Ext,
+                nutDIN934_h,
+                nutDIN934_W,
+                nutDIN439_h,
+                nutDIN439_W,
+                boltThread_p
+            ) = valueAssignement(bolt_D: bolt_Dia)
+            
+            let boltLengthArray = boltLengthDIN933Assignement (
+                gradation_5mm: gradationState.gradation_5mm,
+                gradation_10mm: gradationState.gradation_10mm,
+                gradation_20mm: gradationState.gradation_20mm,
+                boltLengthMax: diameterManager.boltLengthMax
+            )
+            
+            let matThk = Double(matThkTextFieldData.matThkTextFieldValue) ?? 0.0
+        
+            let drawingScale = Double(drawingScale.drawingScale)
+            
+            let boltLengthResult = boltDIN933LengthCalc (
+                washerDIN125_h: washerDIN125_h,
+                washerDIN9021_h: washerDIN9021_h,
+                nutDIN934_h: nutDIN934_h,
+                nutDIN439_h: nutDIN439_h,
+                boltThread_p: boltThread_p,
+                headWasherDIN125Count: componentList.washerDIN125Count_Head,
+                headWasherDIN9021Count: componentList.washerDIN9021Count_Head,
+                nutWasherDIN125Count: componentList.washerDIN125Count_Nut,
+                nutWasherDIN9021Count: componentList.washerDIN9021Count_Nut,
+                nutDIN934Count: componentList.nutDIN934Count,
+                nutDIN439Count: componentList.nutDIN439Count,
+                thicknessOfElements: matThk,
+                thread_pFactor: diameterManager.pFactor
+            )
+        
+            let resultSummary = boltDIN933Result (
+                bolt_D: bolt_Dia,
+                nutDIN934Count: componentList.nutDIN934Count,
+                nutDIN439Count: componentList.nutDIN439Count
+            )
+            
+            let washerDIN125 = washerDIN125 (
+                washerDIN125_h: washerDIN125_h,
+                washerDIN125_W: washerDIN125_D_Ext,
+                drawScale: drawingScale
+            )
+            
+            let washerDIN9021 = washerDIN9021 (
+                washerDIN9021_h: washerDIN9021_h,
+                washerDIN9021_W: washerDIN9021_D_Ext,
+                drawScale: drawingScale
+            )
+            
+            let nutDIN934 = nutDIN934 (
+                nutDIN934_h: nutDIN934_h,
+                nutDIN934_W: nutDIN934_W,
+                drawScale: drawingScale
+            )
+            
+            let nutDIN439 = nutDIN439 (
+                nutDIN439_h: nutDIN439_h,
+                nutDIN439_W: nutDIN439_W,
+                drawScale: drawingScale
+            )
+            
+            let combinedMaterial = combinedMaterial (
+                materialThick: matThk, materialWidth: .infinity,
+                drawScale: drawingScale
+            )
+            
+            let boltDIN933 = boltDIN933 (
+                boltDiameter: Double(diameterManager.boltDiameter),
+                DIN931Head_h: DIN931Head_h,
+                DIN931Head_W: DIN931Head_W,
+                DIN931_L: Double(boltLengthResult),
+                drawScale: drawingScale
+            )
+        
+            let shapeTopOffset: Double = 0
+        
+            VStack {
+                ZStack {
+                    GeometryReader { geometry in
+                        boltDIN933
+                            .position (
+                                x: geometry.size.width/2,
+                                y: ((Double(boltLengthResult) + DIN931Head_h) / 2) * drawingScale + shapeTopOffset
+                            )
+                        
+                        // Podkładki DIN 125 pod łbem śruby
+                        VStack (spacing: 0) {
+                            ForEach(0..<componentList.washerDIN125Count_Head, id: \.self) { _ in
+                                washerDIN125
+                            }
+                        }
+                        .position (
+                            x: geometry.size.width/2,
+                            y: (washerDIN125_h * Double(componentList.washerDIN125Count_Head) / 2 + DIN931Head_h) * drawingScale + shapeTopOffset
+                        )
+                        
+                        // Podkładki DIN 9021 pod łbem śruby
+                        VStack (spacing: 0) {
+                            ForEach(0..<componentList.washerDIN9021Count_Head, id: \.self) { _ in
+                                washerDIN9021
+                            }
+                        }
+                        .position (
+                            x: geometry.size.width/2,
+                            y: (washerDIN9021_h * Double(componentList.washerDIN9021Count_Head) / 2
+                                + washerDIN125_h * Double(componentList.washerDIN125Count_Head)
+                                + DIN931Head_h) * drawingScale + shapeTopOffset
+                        )
+                        
+                        // Łączone materiały
+                        ZStack {
+                            combinedMaterial
+                                .position (
+                                    x: geometry.size.width/2,
+                                    y: (matThk / 2
+                                        + washerDIN9021_h * Double(componentList.washerDIN9021Count_Head)
+                                        + washerDIN125_h * Double(componentList.washerDIN125Count_Head)
+                                        + DIN931Head_h) * drawingScale + shapeTopOffset
+                                )
+                        }
+                        
+                        // Podkładki DIN 9021 pod nakrętką
+                        VStack (spacing: 0) {
+                            ForEach(0..<componentList.washerDIN9021Count_Nut, id: \.self) { _ in
+                                washerDIN9021
+                            }
+                        }
+                        .position (
+                            x: geometry.size.width/2,
+                            y: (washerDIN9021_h * Double(componentList.washerDIN9021Count_Nut) / 2
+                                + matThk
+                                + washerDIN9021_h * Double(componentList.washerDIN9021Count_Head)
+                                + washerDIN125_h * Double(componentList.washerDIN125Count_Head)
+                                + DIN931Head_h) * drawingScale + shapeTopOffset
+                        )
+                        
+                        // Podkładki DIN 125 pod nakrętką
+                        VStack (spacing: 0) {
+                            ForEach(0..<componentList.washerDIN125Count_Nut, id: \.self) { _ in
+                                washerDIN125
+                            }
+                        }
+                        .position (
+                            x: geometry.size.width/2,
+                            y: (washerDIN125_h * Double(componentList.washerDIN125Count_Nut) / 2
+                                + washerDIN9021_h * Double(componentList.washerDIN9021Count_Nut)
+                                + matThk
+                                + washerDIN9021_h * Double(componentList.washerDIN9021Count_Head)
+                                + washerDIN125_h * Double(componentList.washerDIN125Count_Head)
+                                + DIN931Head_h) * drawingScale + shapeTopOffset
+                        )
+                        
+                        // Nakrętki DIN 934
+                        VStack (spacing: 0) {
+                            ForEach(0..<componentList.nutDIN934Count, id: \.self) { _ in
+                                nutDIN934
+                            }
+                        }
+                        .position (
+                            x: geometry.size.width/2,
+                            y: (nutDIN934_h * Double(componentList.nutDIN934Count) / 2
+                                + washerDIN125_h * Double(componentList.washerDIN125Count_Nut)
+                                + washerDIN9021_h * Double(componentList.washerDIN9021Count_Nut)
+                                + matThk
+                                + washerDIN125_h * Double(componentList.washerDIN125Count_Head)
+                                + washerDIN9021_h * Double(componentList.washerDIN9021Count_Head)
+                                + DIN931Head_h) * drawingScale + shapeTopOffset
+                        )
+                        
+                        // Nakrętki DIN 439
+                        VStack (spacing: 0) {
+                            ForEach(0..<componentList.nutDIN439Count, id: \.self) { _ in
+                                nutDIN439
+                            }
+                        }
+                        .position (
+                            x: geometry.size.width/2,
+                            y: (nutDIN439_h * Double(componentList.nutDIN439Count) / 2
+                                + nutDIN934_h * Double(componentList.nutDIN934Count)
+                                + washerDIN125_h * Double(componentList.washerDIN125Count_Nut)
+                                + washerDIN9021_h * Double(componentList.washerDIN9021Count_Nut)
+                                + matThk
+                                + washerDIN125_h * Double(componentList.washerDIN125Count_Head)
+                                + washerDIN9021_h * Double(componentList.washerDIN9021Count_Head)
+                                + DIN931Head_h) * drawingScale + shapeTopOffset
+                        )
+                    }
+                }
+                
+                Rectangle()
+                    .frame(height: 0)
+                    .foregroundColor(Color.black)
+                    .padding(.top, (Double(boltLengthResult) + DIN931Head_h) * drawingScale)
+            }
+    }
+}
+
+struct BoltDIN7991View: View {
     @EnvironmentObject var diameterManager: BoltDiameter
     @EnvironmentObject var gradationState: GradationState
     @EnvironmentObject var componentList: ComponentList
