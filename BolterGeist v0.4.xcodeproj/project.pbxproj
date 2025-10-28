@@ -11,9 +11,6 @@
 		3D44F2E92B39B6DB00714341 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44F2E82B39B6DB00714341 /* ContentView.swift */; };
 		3D44F2EB2B39B6DD00714341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D44F2EA2B39B6DD00714341 /* Assets.xcassets */; };
 		3D44F2EE2B39B6DD00714341 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D44F2ED2B39B6DD00714341 /* Preview Assets.xcassets */; };
-		3D44F2F82B39B6DD00714341 /* BolterGeist_v0_4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44F2F72B39B6DD00714341 /* BolterGeist_v0_4Tests.swift */; };
-		3D44F3022B39B6DD00714341 /* BolterGeist_v0_4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44F3012B39B6DD00714341 /* BolterGeist_v0_4UITests.swift */; };
-		3D44F3042B39B6DD00714341 /* BolterGeist_v0_4UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44F3032B39B6DD00714341 /* BolterGeist_v0_4UITestsLaunchTests.swift */; };
 		3DB487562B39BE220057628C /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB487552B39BE220057628C /* GlobalData.swift */; };
 		3DB487592B39BE520057628C /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB487582B39BE520057628C /* SharedData.swift */; };
 		3DB4875C2B39BE8C0057628C /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4875B2B39BE8C0057628C /* About.swift */; };
@@ -55,11 +52,7 @@
 		3D44F2EA2B39B6DD00714341 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D44F2ED2B39B6DD00714341 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3D44F2F32B39B6DD00714341 /* BolterGeist v0.4Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BolterGeist v0.4Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D44F2F72B39B6DD00714341 /* BolterGeist_v0_4Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolterGeist_v0_4Tests.swift; sourceTree = "<group>"; };
 		3D44F2FD2B39B6DD00714341 /* BolterGeist v0.4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BolterGeist v0.4UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D44F3012B39B6DD00714341 /* BolterGeist_v0_4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolterGeist_v0_4UITests.swift; sourceTree = "<group>"; };
-		3D44F3032B39B6DD00714341 /* BolterGeist_v0_4UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BolterGeist_v0_4UITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3DA55C2F2B431EE000377E2E /* BolterGeist v0.4.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BolterGeist v0.4.entitlements"; sourceTree = "<group>"; };
 		3DB487552B39BE220057628C /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		3DB487582B39BE520057628C /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		3DB4875B2B39BE8C0057628C /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
@@ -106,8 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				3D44F2E52B39B6DB00714341 /* BolterGeist v0.4 */,
-				3D44F2F62B39B6DD00714341 /* BolterGeist v0.4Tests */,
-				3D44F3002B39B6DD00714341 /* BolterGeist v0.4UITests */,
 				3D44F2E42B39B6DB00714341 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -125,7 +116,6 @@
 		3D44F2E52B39B6DB00714341 /* BolterGeist v0.4 */ = {
 			isa = PBXGroup;
 			children = (
-				3DA55C2F2B431EE000377E2E /* BolterGeist v0.4.entitlements */,
 				3DB487652B39BF0E0057628C /* Views */,
 				3DB4875A2B39BE760057628C /* Navigation Links */,
 				3DB487572B39BE3F0057628C /* Shared Data */,
@@ -144,23 +134,6 @@
 				3D44F2ED2B39B6DD00714341 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		3D44F2F62B39B6DD00714341 /* BolterGeist v0.4Tests */ = {
-			isa = PBXGroup;
-			children = (
-				3D44F2F72B39B6DD00714341 /* BolterGeist_v0_4Tests.swift */,
-			);
-			path = "BolterGeist v0.4Tests";
-			sourceTree = "<group>";
-		};
-		3D44F3002B39B6DD00714341 /* BolterGeist v0.4UITests */ = {
-			isa = PBXGroup;
-			children = (
-				3D44F3012B39B6DD00714341 /* BolterGeist_v0_4UITests.swift */,
-				3D44F3032B39B6DD00714341 /* BolterGeist_v0_4UITestsLaunchTests.swift */,
-			);
-			path = "BolterGeist v0.4UITests";
 			sourceTree = "<group>";
 		};
 		3DB487542B39BDDC0057628C /* Global Data */ = {
@@ -360,7 +333,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D44F2F82B39B6DD00714341 /* BolterGeist_v0_4Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,8 +340,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D44F3042B39B6DD00714341 /* BolterGeist_v0_4UITestsLaunchTests.swift in Sources */,
-				3D44F3022B39B6DD00714341 /* BolterGeist_v0_4UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,7 +545,6 @@
 		3D44F30B2B39B6DD00714341 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -594,7 +563,6 @@
 		3D44F30C2B39B6DD00714341 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -613,7 +581,6 @@
 		3D44F30E2B39B6DD00714341 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -630,7 +597,6 @@
 		3D44F30F2B39B6DD00714341 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
