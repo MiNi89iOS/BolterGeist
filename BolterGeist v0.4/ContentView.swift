@@ -15,17 +15,21 @@ struct ContentView: View {
     @StateObject private var componentList = ComponentList()
     @StateObject private var drawingScale = DrawingScale()
     
+    @State private var showDisclaimer = false
+    
     var body: some View {
         NavigationSplitView {
            List {
                             NavigationLink("BolterGeist Intuo") {
                                 BolterGeistIntuitive()
                                 .navigationTitle("BolterGeist Intuo")
+                                .navigationBarTitleDisplayMode(.inline)
                             }
                            
                             NavigationLink("BolterGeist PRO") {
                                 BolterGeistPro()
                                 .navigationTitle("BolterGeist PRO")
+                                .navigationBarTitleDisplayMode(.inline)
                                 .environmentObject(diameterManager)
                                 .environmentObject(gradationState)
                                 .environmentObject(matThkTextFieldData)
@@ -37,6 +41,7 @@ struct ContentView: View {
                             NavigationLink("Settings") {
                                 SettingsView()
                                 .navigationTitle("Settings")
+                                .navigationBarTitleDisplayMode(.inline)
                                 .environmentObject(diameterManager)
                                 .environmentObject(matThkTextFieldData)
                                 .environmentObject(componentList)
@@ -47,15 +52,29 @@ struct ContentView: View {
                             NavigationLink("Help") {
                                 HelpView()
                                 .navigationTitle("Help")
+                                .navigationBarTitleDisplayMode(.inline)
                             }
                            
                             NavigationLink("About") {
                                 AboutView()
                                 .navigationTitle("About")
+                                .navigationBarTitleDisplayMode(.inline)
                             }
                     }
         } detail: {
             Text("Welcome to BolterGeist")
+        }
+        .onAppear {
+            // Pokaż przy pierwszym uruchomieniu (lub gdy użytkownik nie zaakceptował)
+            let accepted = UserDefaults.standard.bool(forKey: "disclaimerAccepted")
+            showDisclaimer = !accepted
+        }
+        .sheet(isPresented: $showDisclaimer) {
+            DisclaimerSheet {
+                // Po akceptacji zapisujemy flagę i zamykamy sheet
+                UserDefaults.standard.set(true, forKey: "disclaimerAccepted")
+                showDisclaimer = false
+            }
         }
     }
 }

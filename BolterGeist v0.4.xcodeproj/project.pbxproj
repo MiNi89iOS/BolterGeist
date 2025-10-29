@@ -15,6 +15,7 @@
 		3D8C01602EB2438D00E51B4A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 3D8C015F2EB2438D00E51B4A /* LICENSE */; };
 		3D8C01622EB2439200E51B4A /* TRADEMARKS.md in Resources */ = {isa = PBXBuildFile; fileRef = 3D8C01612EB2439200E51B4A /* TRADEMARKS.md */; };
 		3D8C01642EB2485B00E51B4A /* NOTICE in Resources */ = {isa = PBXBuildFile; fileRef = 3D8C01632EB2485B00E51B4A /* NOTICE */; };
+		3D8C01662EB24E9700E51B4A /* DisclaimerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C01652EB24E9600E51B4A /* DisclaimerSheet.swift */; };
 		3DB487562B39BE220057628C /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB487552B39BE220057628C /* GlobalData.swift */; };
 		3DB487592B39BE520057628C /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB487582B39BE520057628C /* SharedData.swift */; };
 		3DB4875C2B39BE8C0057628C /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4875B2B39BE8C0057628C /* About.swift */; };
@@ -61,6 +62,7 @@
 		3D8C015F2EB2438D00E51B4A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		3D8C01612EB2439200E51B4A /* TRADEMARKS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TRADEMARKS.md; sourceTree = "<group>"; };
 		3D8C01632EB2485B00E51B4A /* NOTICE */ = {isa = PBXFileReference; lastKnownFileType = text; path = NOTICE; sourceTree = "<group>"; };
+		3D8C01652EB24E9600E51B4A /* DisclaimerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerSheet.swift; sourceTree = "<group>"; };
 		3DB487552B39BE220057628C /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		3DB487582B39BE520057628C /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		3DB4875B2B39BE8C0057628C /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				3D499F482EB111C7006971A6 /* Readme */,
 				3D8C01632EB2485B00E51B4A /* NOTICE */,
 				3D44F2EC2B39B6DD00714341 /* Preview Content */,
+				3D8C01652EB24E9600E51B4A /* DisclaimerSheet.swift */,
 			);
 			path = "BolterGeist v0.4";
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				3DB487592B39BE520057628C /* SharedData.swift in Sources */,
 				3DB487562B39BE220057628C /* GlobalData.swift in Sources */,
 				3DB487762B39BFED0057628C /* ThreadEntry.swift in Sources */,
+				3D8C01662EB24E9700E51B4A /* DisclaimerSheet.swift in Sources */,
 				3DB487672B39BF230057628C /* BoltView.swift in Sources */,
 				3DB4876D2B39BF7D0057628C /* GradationView.swift in Sources */,
 				3DB487732B39BFCA0057628C /* ResultView.swift in Sources */,
