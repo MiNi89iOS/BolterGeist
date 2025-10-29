@@ -74,9 +74,11 @@ Aplikacja zapamiętuje wybrane parametry (np. domyślną średnicę śruby, grad
 - Wizualizacja jest 2D i schematyczna, bez pełnego odwzorowania geometrii normowej.
 - Wsparcie dla DIN 7991 jest wstępne/eksperymentalne.
 
-## Licencja
+## Licencja i znaki towarowe
 
-Wyniki obliczeń i wizualizacje mają charakter informacyjny. O ile nie uzgodniono inaczej, projekt przeznaczony do użytku prywatnego/edukacyjnego. Skontaktuj się z autorem w celu ustalenia warunków komercyjnego wykorzystania.
+- Kod: Apache License 2.0. Szczegóły w pliku [LICENSE](./LICENSE).
+- Plik z podsumowaniem i atrybucjami: [NOTICE](./NOTICE).
+- „BolterGeist” i powiązane logotypy są znakami towarowymi Miłosza Niedzieli. Polityka użycia znaków: [TRADEMARKS.md](./TRADEMARKS.md).
 
 ## Kontakt
 

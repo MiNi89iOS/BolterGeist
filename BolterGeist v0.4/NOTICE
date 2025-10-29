@@ -1,0 +1,61 @@
+# Legal Notice
+
+## 1. License Summary
+
+This project’s source code is licensed under the Apache License, Version 2.0.  
+The full license text is available in [LICENSE](./LICENSE).
+
+Some non-code assets (such as images, icons, or other artwork) may be subject to separate terms, described below.
+
+---
+
+## 2. Source Code
+
+All Swift source files and related configuration files are provided under the **Apache License 2.0**.  
+You may use, modify, and distribute the code, provided you comply with the terms of Apache 2.0, including preserving copyright and license notices and this NOTICE where applicable.
+
+---
+
+## 3. Assets and Artwork
+
+All artwork contained in this repository (e.g., JPG, PNG, SVG, or PDF files) was created by **Miłosz Niedziela** and is provided for **functional use within this application and its forks**.
+
+You are granted permission to:
+- use, copy, and distribute these assets **as part of this application or its forks**, and
+- include them in compiled/distributed builds of this application.
+
+You are **not permitted** to:
+- resell or use these assets independently of the application,
+- use them in other projects or commercial products without the author’s consent.
+
+For usage outside of this application, please contact the author.
+
+---
+
+## 4. Trademarks
+
+“BolterGeist” and related logos, names, and marks are trademarks of **Miłosz Niedziela**.  
+The Apache License 2.0 grants rights to the code but **does not** grant rights to the trademarks.  
+Use of the marks is governed by the project’s Trademark Use Policy: [TRADEMARKS.md](./TRADEMARKS.md).
+
+---
+
+## 5. Third-Party Libraries
+
+Any third-party libraries included in this project retain their original licenses.  
+Their license texts can be found in the “Third-Party Licenses” section of their documentation or in their respective repositories.
+
+---
+
+## 6. Summary
+
+| Category            | License/Terms                           | Notes                                                     |
+|---------------------|------------------------------------------|-----------------------------------------------------------|
+| Swift source code   | Apache License 2.0                       | Use, modify, distribute under Apache 2.0 terms            |
+| App artwork         | Custom terms by Miłosz Niedziela         | Allowed only within this app and its forks                |
+| Third-party libs    | Original upstream licenses               | See their LICENSE files                                   |
+| Trademarks          | Trademark policy (TRADEMARKS.md)         | No trademark rights granted by Apache 2.0                 |
+
+---
+
+Last updated: October 29, 2025
