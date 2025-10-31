@@ -20,12 +20,12 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
            List {
-                            NavigationLink("BolterGeist Intuo") {
+                          /*  NavigationLink("BolterGeist Intuo") {
                                 BolterGeistIntuitive()
                                 .navigationTitle("BolterGeist Intuo")
                                 .navigationBarTitleDisplayMode(.inline)
                             }
-                           
+                          */
                             NavigationLink("BolterGeist PRO") {
                                 BolterGeistPro()
                                 .navigationTitle("BolterGeist PRO")
