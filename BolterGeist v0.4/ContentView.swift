@@ -66,13 +66,13 @@ struct ContentView: View {
         }
         .onAppear {
             // Pokaż przy pierwszym uruchomieniu (lub gdy użytkownik nie zaakceptował)
-            let accepted = UserDefaults.standard.bool(forKey: "disclaimerAccepted")
+            let accepted = UserDefaults.standard.bool(forKey: "disclaimeAccepted")
             showDisclaimer = !accepted
         }
         .sheet(isPresented: $showDisclaimer) {
             DisclaimerSheet {
                 // Po akceptacji zapisujemy flagę i zamykamy sheet
-                UserDefaults.standard.set(true, forKey: "disclaimerAccepted")
+                UserDefaults.standard.set(true, forKey: "disclaimeAccepted")
                 showDisclaimer = false
             }
         }

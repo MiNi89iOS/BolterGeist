@@ -138,7 +138,6 @@
 				3D44F2E82B39B6DB00714341 /* ContentView.swift */,
 				3D44F2EA2B39B6DD00714341 /* Assets.xcassets */,
 				3D44F2EC2B39B6DD00714341 /* Preview Content */,
-				3D8C01652EB24E9600E51B4A /* DisclaimerSheet.swift */,
 			);
 			path = "BolterGeist v0.4";
 			sourceTree = "<group>";
@@ -190,6 +189,7 @@
 				3DB487702B39BFB10057628C /* MaterialThickness.swift */,
 				3DB487722B39BFCA0057628C /* ResultView.swift */,
 				3DB487752B39BFED0057628C /* ThreadEntry.swift */,
+				3D8C01652EB24E9600E51B4A /* DisclaimerSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

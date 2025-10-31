@@ -723,7 +723,7 @@ func boltResult (
         return resultString
         
     } else if resultSumOfComponents == true {
-        let resultString = "Nie dobrano śruby! 3"
+        let resultString = "Nie dobrano śruby!" // 3
         print(resultString)
         resultSumOfComponents = false
         isOKValue = false
@@ -764,13 +764,13 @@ func boltResult (
         return resultString
         // usunięto warunek //
     } else if threadEntry == false {                                                  // jeśli NIE dopuszcza się wejścia gwintu w materiał i result < 0
-        let resultString = "Nie dobrano śruby! 1"
+        let resultString = "Nie dobrano śruby!"// 1"
         print(resultString)
         isOKValue = false
         return resultString
         
     } else {                                                                          // jeśli DOPUSZCZA się wejścia gwintu w materiał i result < 0
-        let resultString = "Nie dobrano śruby! 2"
+        let resultString = "Nie dobrano śruby!"// 2"
         print(resultString)
         isOKValue = false
         return resultString
@@ -795,7 +795,7 @@ func boltDIN933Result (
         isOKValue = true
         return resultString
     } else {
-        let resultString = "Nie dobrano śruby! 1"
+        let resultString = "Nie dobrano śruby!" // 1"
         print(resultString)
         isOKValue = false
         return resultString
