@@ -49,11 +49,11 @@ struct ContentView: View {
                                 .environmentObject(drawingScale)
                             }
                             
-                            NavigationLink("Help") {
+                           /* NavigationLink("Help") {
                                 HelpView()
                                 .navigationTitle("Help")
                                 .navigationBarTitleDisplayMode(.inline)
-                            }
+                            }*/
                            
                             NavigationLink("About") {
                                 AboutView()
